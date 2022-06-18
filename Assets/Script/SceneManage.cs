@@ -9,6 +9,7 @@ public class SceneManage : MonoBehaviour
     public static int _strikes = default;
     public static float _result = default;
     public static float _highScore = default;
+    public static bool _ruleCheck = default;
     void Start()
     {
         
@@ -40,6 +41,7 @@ public class SceneManage : MonoBehaviour
     public void ChangeScene()
     {
         SceneManager.LoadScene("GameScene");
+        _ruleCheck = true;
         _strikes = 0;
         _result = 0f;
     }

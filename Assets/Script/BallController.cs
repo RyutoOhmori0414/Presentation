@@ -12,7 +12,8 @@ public class BallController : MonoBehaviour
     Animator _animator;
     Rigidbody2D _rb;
     SpriteRenderer _sr;
-    AudioSource _as;
+    //AudioSource _as;
+    BallAudio _ba;
     bool _hittingCheck;
     float _random = default;
 
@@ -25,7 +26,8 @@ public class BallController : MonoBehaviour
         transform.position = m_player.position;
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
-        _as = GetComponent<AudioSource>();
+        _ba = GetComponent<BallAudio>();
+        //_as = GetComponent<AudioSource>();
         //_hittingCheck = true;
         _animator = _player.GetComponent<Animator>();
         _animator.SetBool("New Bool", false);
@@ -84,7 +86,7 @@ public class BallController : MonoBehaviour
     IEnumerator Later()
     {
         _animator.SetBool("New Bool", true);
-        _as.Play();
+        _ba.AtBat();
 
         yield return new WaitForSeconds(0.2f);
         _sr.color = Color.white;

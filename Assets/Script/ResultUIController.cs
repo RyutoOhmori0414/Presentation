@@ -18,7 +18,15 @@ public class ResultUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _resultText.text = $"”ò‹——£{SceneManage._result:f2}m";
+        if (SceneManage._result != 0)
+        {
+            _resultText.text = $"”ò‹——£{SceneManage._result:f2}m";
+        }
+        else
+        {
+            _resultText.text = "OUI";
+        }
+    
         _serifuNumber = Random.Range(0, _serifu.Length);
     }
 

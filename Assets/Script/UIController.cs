@@ -15,6 +15,8 @@ public class UIController : MonoBehaviour
     [SerializeField] Image _white = default;
     [SerializeField] Image _ojosama = default;
     [SerializeField] Image _fukidasi = default;
+    [SerializeField] Image _rulebg = default;
+    [SerializeField] Text _rule = default;
 
    [SerializeField] Transform _ballTransform = default;
     [SerializeField] float _distance = default;
@@ -69,6 +71,21 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (SceneManage._ruleCheck)
+            {
+                SceneManage._ruleCheck = false;
+            }
+            else
+            {
+                SceneManage._ruleCheck = true;
+            }
+        }
+
+        _rule.enabled = SceneManage._ruleCheck;
+        _rulebg.enabled = SceneManage._ruleCheck;
+
         if (!_resultCheck)
         {
             _bT = _ballTransform.position.x;
@@ -103,6 +120,8 @@ public class UIController : MonoBehaviour
             _s.enabled = false;
             _strike1.enabled = false;
             _strike2.enabled = false;
+            _rule.enabled = false;
+            _rulebg.enabled = false;
             SceneManage._result = _ballTransform.position.x;
         }
     }
