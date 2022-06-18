@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+
+
     [SerializeField] float _speed = default;
     [SerializeField] Transform m_player = default;
+    [SerializeField] GameObject _player;
+    Animator _animator;
+    Rigidbody2D _rb;
+    SpriteRenderer _sr;
+    AudioSource _as;
+    bool _hittingCheck;
+    float _random = default;
 
     // Start is called before the first frame update
     void Start()
@@ -13,16 +22,73 @@ public class BallController : MonoBehaviour
         transform.Rotate(new Vector3(0, 0, -45));
         //Rigidbody2D rb = GetComponent<Rigidbody2D>();
         //rb.velocity = this.transform.up * _speed;
-       transform.position = m_player.position;
+        transform.position = m_player.position;
+        _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
+        _as = GetComponent<AudioSource>();
+        //_hittingCheck = true;
+        _animator = _player.GetComponent<Animator>();
+        _animator.SetBool("New Bool", false);
     }
+
+    public void CheckOn()
+    {
+        _hittingCheck = true;
+        Debug.Log("CheckOn‚ª‚¤‚²‚¢‚Ä‚é‚æ");
+    }
+
+    public void CreanHit()
+    {
+
+        _random = Random.Range(0.65f, 1.0f);
+        //_hittingCheck = false;
+
+    }
+
+    public void Hit()
+    {
+
+
+        _random = Random.Range(0.3f, 0.65f);
+        //_hittingCheck = false;
+
+    }
+
+    public void Bad()
+    {
+
+        _random = Random.Range(0.01f, 0.3f);
+
+
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && _hittingCheck)
         {
-            rb.velocity = this.transform.up *_speed * Random.value;
+            /*_rb.velocity = this.transform.up *_speed * _random;
+            _hittingCheck = false;*/
+            StartCoroutine("Later");
         }
+    }
+
+
+    public void CheckOff()
+    {
+        _hittingCheck = false;
+        Debug.Log("Checkoff‚ª“®‚¢‚Ä‚é‚æ");
+    }
+
+    IEnumerator Later()
+    {
+        _animator.SetBool("New Bool", true);
+        _as.Play();
+
+        yield return new WaitForSeconds(0.2f);
+        _sr.color = Color.white;
+        _rb.velocity = this.transform.up * _speed * _random;
+        _hittingCheck = false;
     }
 }
