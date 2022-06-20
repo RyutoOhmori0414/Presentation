@@ -1631,7 +1631,7 @@ MonoBehaviour:
   _dropdown: {fileID: 741694653}
   _yukkuri: 0.1
   _futu: 0.05
-  _hayai: 0.01
+  _hayai: 0.02
 --- !u!4 &752758325
 Transform:
   m_ObjectHideFlags: 0
