@@ -88,7 +88,7 @@ public class BallController : MonoBehaviour
         _animator.SetBool("New Bool", true);
         _ba.AtBat();
 
-        yield return new WaitForSeconds(0.2f);
+        yield return null;  // ‚±‚±‚Å–{—ˆ‚Í PitchingBall ‚ğÁ‚µ‚½•û‚ª—Ç‚¢
         _sr.color = Color.white;
         _rb.velocity = this.transform.up * _speed * _random;
         _hittingCheck = false;
