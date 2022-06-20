@@ -8,7 +8,7 @@ public class ResultUIController : MonoBehaviour
     [SerializeField] Text _resultText = default;
     [SerializeField] Text _ojosama = default;
 
-    [SerializeField] float _distance = default;
+    float _distance = default;
     [SerializeField] string[] _serifu = default;
 
     int _serifuNumber = default;
@@ -18,6 +18,7 @@ public class ResultUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _distance = SceneManage._speakDistance;
         if (SceneManage._result != 0)
         {
             _resultText.text = $"”ò‹——£{SceneManage._result:f2}m";

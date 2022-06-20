@@ -10,6 +10,9 @@ public class SceneManage : MonoBehaviour
     public static float _result = default;
     public static float _highScore = default;
     public static bool _ruleCheck = default;
+    public static float _speakDistance = default;
+    public static int _dropdownValue = default;
+
     void Start()
     {
         

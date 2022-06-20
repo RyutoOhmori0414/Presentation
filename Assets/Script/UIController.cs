@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
     [SerializeField] Text _rule = default;
 
    [SerializeField] Transform _ballTransform = default;
-    [SerializeField] float _distance = default;
+    float _distance = default;
     [SerializeField] string[] _hagemasi;
     [SerializeField] string[] _botiboti;
     [SerializeField] string[] _sugoi;
@@ -48,6 +48,7 @@ public class UIController : MonoBehaviour
         _white.enabled = false;
         _ojosama.enabled = false;
         _fukidasi.enabled = false;
+        _distance = SceneManage._speakDistance;
         //_bT = _ballTransform.position.x;
         //_text.text = $"{ _bT.ToString("2")}";
         if (SceneManage._strikes == 0)

@@ -21,8 +21,11 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -44,9 +47,14 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   sceneClasses:
     Assets/GameScene.unity:
     - Class: 1
@@ -228,6 +236,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1520}
     - Class: 114
+      Script: {instanceID: 1660}
+    - Class: 114
       Script: {instanceID: 2204}
     - Class: 114
       Script: {instanceID: 2310}
@@ -240,7 +250,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3470}
     - Class: 114
+      Script: {instanceID: 3482}
+    - Class: 114
       Script: {instanceID: 3600}
+    - Class: 114
+      Script: {instanceID: 4484}
+    - Class: 114
+      Script: {instanceID: 4716}
+    - Class: 114
+      Script: {instanceID: 4934}
     - Class: 114
       Script: {instanceID: 5556}
     - Class: 115
@@ -400,7 +418,7 @@ ScriptsOnlyBuild:
     className: CinemachineDollyCart
   - hash:
       serializedVersion: 2
-      Hash: acb2fc6ae7a58ac7ed24723b1a993c1d
+      Hash: f8fa26fe72f339172eeca055b9fce226
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TitleUI
@@ -898,7 +916,7 @@ ScriptsOnlyBuild:
     className: CinemachineGroupComposer
   - hash:
       serializedVersion: 2
-      Hash: da685e36450df9408e4a7a77db85b720
+      Hash: 1b3c24528a523879b14edfb5c42e8263
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIController
@@ -1024,7 +1042,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 2ee3de74c6f95d3a0dc3a1ddf9712052
+      Hash: be23bf78de648a86f1169c0ce9014df8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ResultUIController

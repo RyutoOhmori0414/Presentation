@@ -7,8 +7,13 @@ public class TitleUI : MonoBehaviour
 {
     [SerializeField] Text _text;
     [SerializeField] Image _fukidasi;
+    [SerializeField] GameObject _setting;
+    [SerializeField] Dropdown _dropdown;
 
-    [SerializeField] float _distance = default;
+    float _distance = default;
+    [SerializeField] float _yukkuri;
+    [SerializeField] float _futu;
+    [SerializeField] float _hayai;
 
     int _mojisuu = default;
     float _keikajikan = default;
@@ -16,7 +21,9 @@ public class TitleUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        _dropdown.value = SceneManage._dropdownValue;
+        _setting.SetActive(false);
+        _distance = SceneManage._speakDistance;
     }
 
     // Update is called once per frame
@@ -31,6 +38,22 @@ public class TitleUI : MonoBehaviour
         {
             _text.text = Talk($"ç°ÇÃç≈í∑îÚãóó£ÇÕ {SceneManage._highScore.ToString("f2")}mÇ≈Ç∑ÇÌ");
         }
+
+        if (_dropdown.value == 0)
+        {
+            SceneManage._speakDistance = _futu;
+            SceneManage._dropdownValue = 0;
+        }
+        else if (_dropdown.value == 1)
+        {
+            SceneManage._speakDistance = _hayai;
+            SceneManage._dropdownValue = 1;
+        }
+        else if (_dropdown.value == 2)
+        {
+            SceneManage._speakDistance = _yukkuri;
+            SceneManage._dropdownValue =Å@2;
+        }
     }
 
     string Talk(string Ojousama)
@@ -42,5 +65,15 @@ public class TitleUI : MonoBehaviour
             _keikajikan = Time.realtimeSinceStartup;
         }
         return _talkOjousama;
+    }
+
+    public void OpenSetting()
+    {
+        _setting.SetActive(true);
+    }
+
+    public void CloseSetting()
+    {
+        _setting.SetActive(false);
     }
 }
