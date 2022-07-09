@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
+public class UIController : UIkeishou
 {
     [SerializeField] Text _text = default;
     [SerializeField] Text _resultText = default;
@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
     [SerializeField] Text _rule = default;
 
    [SerializeField] Transform _ballTransform = default;
-    float _distance = default;
+    //float _distance = default;
     [SerializeField] string[] _hagemasi;
     [SerializeField] string[] _botiboti;
     [SerializeField] string[] _sugoi;
@@ -30,9 +30,9 @@ public class UIController : MonoBehaviour
     int _c = default;
     int _d = default;
 
-    int _mojisuu = default;
+    /*int _mojisuu = default;
     float _keikajikan = default;
-    string _talkOjousama;
+    string _talkOjousama;*/
 
     float _bT = default;
     public static bool _resultCheck = default;
@@ -41,14 +41,15 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _mojisuu = 0;
+        base.Start();
+        //_mojisuu = 0;
         _resultText.text = null;
         _hitokoto.text = null;
         _next.SetActive(false);
         _white.enabled = false;
         _ojosama.enabled = false;
         _fukidasi.enabled = false;
-        _distance = SceneManage._speakDistance;
+        //_distance = SceneManage._speakDistance;
         //_bT = _ballTransform.position.x;
         //_text.text = $"{ _bT.ToString("2")}";
         if (SceneManage._strikes == 0)
@@ -111,7 +112,7 @@ public class UIController : MonoBehaviour
             {
                 _mesugakiOjousama = _tonndemonaidesuwa[_d];
             }
-            _hitokoto.text = Talk($"-‚¨ì—l‚ÌˆêŒ¾-\n{_mesugakiOjousama}");
+            _hitokoto.text = TalkSkip($"-‚¨ì—l‚ÌˆêŒ¾-\n{_mesugakiOjousama}");
             _resultText.text = $"”ò‹——£{_bT.ToString()}m";
             _white.enabled = true;
             _ojosama.enabled = true;
@@ -127,7 +128,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    string Talk(string Ojousama)
+    /*string Talk(string Ojousama)
     {
         if (Time.realtimeSinceStartup - _keikajikan > _distance && _mojisuu < Ojousama.Length)
         {
@@ -136,5 +137,5 @@ public class UIController : MonoBehaviour
             _keikajikan = Time.realtimeSinceStartup;
         }
         return _talkOjousama;
-    }
+    }*/
 }

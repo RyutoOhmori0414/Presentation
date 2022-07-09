@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TitleUI : MonoBehaviour
+public class TitleUI : UIkeishou
 {
     [SerializeField] Text _text;
     [SerializeField] Image _fukidasi;
     [SerializeField] GameObject _setting;
     [SerializeField] Dropdown _dropdown;
 
-    float _distance = default;
+    //float _distance = default;
     [SerializeField] float _yukkuri;
     [SerializeField] float _futu;
     [SerializeField] float _hayai;
 
-    int _mojisuu = default;
+    /*int _mojisuu = default;
     float _keikajikan = default;
-    string _talkOjousama;
+    string _talkOjousama;*/
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         _dropdown.value = SceneManage._dropdownValue;
         _setting.SetActive(false);
-        _distance = SceneManage._speakDistance;
+        //_distance = SceneManage._speakDistance;
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class TitleUI : MonoBehaviour
         }
         else
         {
-            _text.text = Talk($"¡‚ÌÅ’·”ò‹——£‚Í {SceneManage._highScore.ToString("f2")}m‚Å‚·‚í");
+            _text.text = TalkSkip($"¡‚ÌÅ’·”ò‹——£‚Í {SceneManage._highScore.ToString("f2")}m‚Å‚·‚í");
         }
 
         if (_dropdown.value == 0)
@@ -56,7 +57,13 @@ public class TitleUI : MonoBehaviour
         }
     }
 
-    string Talk(string Ojousama)
+    protected override float Speed(float _distance)
+    {
+        _distance *= Random.value;
+        return _distance;
+    }
+
+    /*string Talk(string Ojousama)
     {
         if (Time.realtimeSinceStartup - _keikajikan > _distance && _mojisuu < Ojousama.Length)
         {
@@ -65,7 +72,7 @@ public class TitleUI : MonoBehaviour
             _keikajikan = Time.realtimeSinceStartup;
         }
         return _talkOjousama;
-    }
+    }*/
 
     public void OpenSetting()
     {

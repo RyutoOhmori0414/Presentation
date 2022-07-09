@@ -60,13 +60,14 @@
     <Compile Include="Assets\Script\PlayerController.cs" />
     <Compile Include="Assets\Script\TitleUI.cs" />
     <Compile Include="Assets\Sumple\Stop.cs" />
+    <Compile Include="Assets\Script\BallAudio.cs" />
     <Compile Include="Assets\Script\PitchBallController.cs" />
     <Compile Include="Assets\Script\BallController.cs" />
     <Compile Include="Assets\Script\UIController.cs" />
     <Compile Include="Assets\Script\ResultUIController.cs" />
     <Compile Include="Assets\Script\SceneManage.cs" />
     <Compile Include="Assets\Script\GameSceneChange.cs" />
-    <Compile Include="Assets\Script\BallAudio.cs" />
+    <Compile Include="Assets\Script\UIkeishou.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\フォント\readme.txt" />

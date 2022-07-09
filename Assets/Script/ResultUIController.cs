@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResultUIController : MonoBehaviour
+public class ResultUIController : UIkeishou
 {
     [SerializeField] Text _resultText = default;
     [SerializeField] Text _ojosama = default;
@@ -12,13 +12,14 @@ public class ResultUIController : MonoBehaviour
     [SerializeField] string[] _serifu = default;
 
     int _serifuNumber = default;
-    int _mojisuu = default;
+    /*int _mojisuu = default;
     float _keikajikan = default;
-    string _talkOjousama;
+    string _talkOjousama;*/
     // Start is called before the first frame update
     void Start()
     {
-        _distance = SceneManage._speakDistance;
+        base.Start();
+        //_distance = SceneManage._speakDistance;
         if (SceneManage._result != 0)
         {
             _resultText.text = $"”ò‹——£{SceneManage._result:f2}m";
@@ -34,10 +35,10 @@ public class ResultUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _ojosama.text = Talk(_serifu[_serifuNumber]);
+        _ojosama.text = TalkSkip(_serifu[_serifuNumber]);
     }
 
-    string Talk(string Ojousama)
+    /*string Talk(string Ojousama)
     {
         if (Time.realtimeSinceStartup - _keikajikan > _distance && _mojisuu < Ojousama.Length)
         {
@@ -46,5 +47,5 @@ public class ResultUIController : MonoBehaviour
             _keikajikan = Time.realtimeSinceStartup;
         }
         return _talkOjousama;
-    }
+    }*/
 }
